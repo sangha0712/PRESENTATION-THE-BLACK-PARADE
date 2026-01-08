@@ -1,5 +1,5 @@
 import React from 'react';
-import { WORLD_LORE } from '../constants';
+import { WORLD_LORE, HISTORY_LOGS } from '../constants';
 
 interface HistoryViewProps {
   onBack: () => void;
@@ -20,61 +20,50 @@ const HistoryView: React.FC<HistoryViewProps> = ({ onBack }) => {
         </div>
       </div>
 
-      <div className="pt-32 pb-20 px-4 max-w-4xl mx-auto">
-         <div className="border border-neon-gold/30 bg-black/50 p-8 md:p-12 relative overflow-hidden">
-            {/* Background decorative elements */}
+      <div className="pt-32 pb-20 px-4 max-w-7xl mx-auto">
+         {/* Introduction Panel */}
+         <div className="border border-neon-gold/30 bg-black/50 p-8 md:p-12 relative overflow-hidden mb-8">
             <div className="absolute top-0 right-0 p-4 opacity-10 font-black text-9xl font-orbitron text-neon-gold select-none pointer-events-none">
                 3074
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-black font-orbitron mb-8 text-neon-gold">
+            <h1 className="text-4xl md:text-5xl font-black font-orbitron mb-4 text-neon-gold">
                 WORLD_HISTORY_LOG
             </h1>
+            <p className="text-gray-400 font-noto max-w-2xl text-lg">
+                대재앙(The Great Collapse) 이후, 인류의 생존과 진화에 대한 기록 보관소.<br/>
+                열람 권한: <span className="text-neon-gold font-bold">LV.5 (ADMIN)</span>
+            </p>
+         </div>
 
-            <div className="space-y-8 font-noto text-gray-300 leading-relaxed">
-                <section>
-                    <h3 className="text-white font-bold text-xl mb-2 font-rajdhani border-l-2 border-neon-gold pl-3">EVENT: THE GREAT COLLAPSE</h3>
-                    <p>{WORLD_LORE.event}. <br/>이 사건은 인류 역사의 분기점이 되었다.</p>
-                </section>
+         {/* Logs Grid */}
+         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {HISTORY_LOGS.map((log) => (
+                <div key={log.id} className="group border border-gray-800 bg-panel-bg hover:border-neon-gold transition-colors duration-300 p-6 flex flex-col relative overflow-hidden">
+                    {/* Security Level Tag */}
+                    <div className="absolute top-2 right-2 text-[10px] font-rajdhani font-bold px-2 py-0.5 border border-gray-700 rounded text-gray-500 group-hover:text-neon-gold group-hover:border-neon-gold/50 transition-colors">
+                        SECURITY: {log.securityLevel}
+                    </div>
 
-                <section>
-                    <h3 className="text-white font-bold text-xl mb-2 font-rajdhani border-l-2 border-neon-gold pl-3">STATUS REPORT</h3>
-                    <ul className="grid grid-cols-2 gap-4 mt-4 bg-gray-900/50 p-4 border border-gray-800">
-                        <li>
-                            <span className="block text-xs text-gray-500">DECEASED</span>
-                            <span className="text-xl font-bold text-red-500">{WORLD_LORE.population.dead}</span>
-                        </li>
-                        <li>
-                            <span className="block text-xs text-gray-500">MUTATED</span>
-                            <span className="text-xl font-bold text-yellow-500">{WORLD_LORE.population.mutated}</span>
-                        </li>
-                        <li>
-                            <span className="block text-xs text-gray-500">SURVIVED (HUMAN)</span>
-                            <span className="text-xl font-bold text-blue-500">{WORLD_LORE.population.survived}</span>
-                        </li>
-                        <li>
-                            <span className="block text-xs text-gray-500">EVOLVED (GIFTED)</span>
-                            <span className="text-xl font-bold text-neon-gold">{WORLD_LORE.population.evolved}</span>
-                        </li>
-                    </ul>
-                </section>
+                    <div className="text-xs text-neon-gold/70 font-rajdhani tracking-widest mb-1">
+                        {log.date} // {log.category}
+                    </div>
+                    
+                    <h3 className="text-xl font-bold font-orbitron text-white mb-3 group-hover:text-neon-gold transition-colors">
+                        {log.title}
+                    </h3>
+                    
+                    <p className="text-sm text-gray-400 font-noto leading-relaxed">
+                        {log.content}
+                    </p>
 
-                <section>
-                    <h3 className="text-white font-bold text-xl mb-2 font-rajdhani border-l-2 border-neon-gold pl-3">NEW ENERGY SOURCE</h3>
-                    <p><strong className="text-white">{WORLD_LORE.energy}</strong>. 방사능과 오염 물질이 결합하여 생성된 미지의 에너지원. 각성자들은 이를 통해 초월적인 힘을 발휘한다.</p>
-                </section>
-
-                <section>
-                    <h3 className="text-white font-bold text-xl mb-2 font-rajdhani border-l-2 border-neon-gold pl-3">WARNING: RESTRICTED ZONES</h3>
-                    <p className="text-red-400">{WORLD_LORE.undiscovered}</p>
-                    <p className="text-sm mt-2">해당 지역은 고농도의 방사능과 S급 이상의 변이체가 서식하는 것으로 추정됨. 접근 금지.</p>
-                </section>
-            </div>
-
-            <div className="mt-12 pt-8 border-t border-gray-800 flex justify-between text-xs font-rajdhani text-gray-500">
-                <span>DOC_ID: A-7492</span>
-                <span>CLEARANCE: LEVEL 5</span>
-            </div>
+                    {/* Tech Decor */}
+                    <div className="mt-auto pt-4 flex justify-between items-center opacity-30 group-hover:opacity-100 transition-opacity">
+                        <div className="h-0.5 w-12 bg-gray-600 group-hover:bg-neon-gold"></div>
+                        <span className="text-[10px] font-mono text-gray-500">{log.id}</span>
+                    </div>
+                </div>
+            ))}
          </div>
       </div>
     </div>

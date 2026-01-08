@@ -25,7 +25,7 @@ const CharacterRoster: React.FC<CharacterRosterProps> = ({ onBack }) => {
   });
 
   return (
-    <div className="min-h-screen bg-dark-bg animate-fadeIn">
+    <div className="min-h-screen bg-transparent animate-fadeIn">
        <div className="fixed top-0 w-full bg-dark-bg/95 backdrop-blur z-30 border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <button 

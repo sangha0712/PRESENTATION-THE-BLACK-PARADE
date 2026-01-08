@@ -7,7 +7,7 @@ interface HistoryViewProps {
 
 const HistoryView: React.FC<HistoryViewProps> = ({ onBack }) => {
   return (
-    <div className="min-h-screen bg-dark-bg text-white animate-fadeIn">
+    <div className="min-h-screen bg-transparent text-white animate-fadeIn">
       <div className="fixed top-0 w-full bg-dark-bg/95 backdrop-blur z-30 border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <button 

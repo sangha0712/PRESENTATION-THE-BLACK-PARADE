@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { MENU_IMAGES, MAIN_MENU_BACKGROUNDS } from '../constants';
+import { MENU_IMAGES } from '../constants';
 
 type MenuOption = 'AFFILIATION' | 'CHARACTER' | 'HISTORY' | 'WEBTOON';
 
@@ -55,7 +55,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({ title, subtitle, onClick, color
       onClick={onClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      // Kept bg-black/20 as per previous context, or "slightly visible"
+      // Kept bg-black/20 for slightly visible container
       className={`group relative w-full h-48 lg:h-[65vh] border border-gray-800 bg-black/20 overflow-hidden hover:border-${color} transition-colors duration-500 animate-fadeIn`}
       style={{ animationDelay: delay }}
     >
@@ -77,7 +77,6 @@ const MenuButton: React.FC<MenuButtonProps> = ({ title, subtitle, onClick, color
               <img 
                 src={hoverImages[activeIndex]} 
                 alt="" 
-                // Removed decoding="async" for stability
                 loading="eager"
                 className="absolute inset-0 w-full h-full object-cover pointer-events-none"
               />
@@ -105,25 +104,9 @@ const MenuButton: React.FC<MenuButtonProps> = ({ title, subtitle, onClick, color
 };
 
 const MainMenu: React.FC<MainMenuProps> = ({ onSelect }) => {
-  // Pick one background image randomly on mount
-  const [bgImage] = useState(() => 
-    MAIN_MENU_BACKGROUNDS[Math.floor(Math.random() * MAIN_MENU_BACKGROUNDS.length)]
-  );
-
   return (
     <div className="min-h-screen w-full relative flex flex-col justify-center overflow-hidden">
-      
-      {/* Background Image Layer */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src={bgImage} 
-          alt="background" 
-          // Changed opacity to 100 for better visibility
-          className="w-full h-full object-cover opacity-100"
-        />
-        {/* Dark overlay for readability - Reduced intensity */}
-        <div className="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/20 to-transparent mix-blend-multiply"></div>
-      </div>
+      {/* Background is now handled by App.tsx */}
 
       {/* Hidden Cache Container */}
       <div className="absolute w-0 h-0 overflow-hidden opacity-0 pointer-events-none">

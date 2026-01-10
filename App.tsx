@@ -7,6 +7,7 @@ import HistoryView from './components/HistoryView';
 import WebtoonView from './components/WebtoonView';
 import ParticleBackground from './components/ParticleBackground';
 import { MENU_IMAGES, MAIN_MENU_BACKGROUNDS } from './constants';
+import { bgm } from './utils/AudioEngine';
 
 type ViewState = 'LANDING' | 'MENU' | 'AFFILIATION' | 'CHARACTER' | 'HISTORY' | 'WEBTOON';
 
@@ -28,6 +29,8 @@ const App: React.FC = () => {
 
   const handleAccess = () => {
     setView('MENU');
+    // Start the thriller BGM engine
+    bgm.start().catch(err => console.error("Audio failed to start:", err));
   };
 
   const handleMenuSelect = (option: 'AFFILIATION' | 'CHARACTER' | 'HISTORY' | 'WEBTOON') => {

@@ -1,3 +1,4 @@
+
 import { CharacterData, FactionData, FactionId, Rank } from './types';
 
 export const WORLD_LORE = {
@@ -443,12 +444,11 @@ export const CHARACTERS: CharacterData[] = [
     personality: ['능글맞음', '돈 밝힘', '거짓말쟁이', '쾌락주의'],
     features: ['트럼프 카드 투척', '배신자']
   },
-  // UNAFFILIATED
   {
     id: 'gray',
     name: '그레이',
     gender: '남',
-    factionId: FactionId.UNAFFILIATED,
+    factionId: FactionId.BLACK_SWAN,
     appearance: '회색발, 흑안',
     age: '불명',
     abilityName: '오염 동화',
@@ -457,6 +457,7 @@ export const CHARACTERS: CharacterData[] = [
     personality: ['염세적', '인간불신', '고독', '과묵'],
     features: ['반변이 인간', '도시 추방자', '변이체 비선공']
   },
+  // UNAFFILIATED
   {
     id: 'leesuyeon',
     name: '이수연',

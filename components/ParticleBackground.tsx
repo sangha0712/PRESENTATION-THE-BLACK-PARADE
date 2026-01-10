@@ -25,7 +25,8 @@ const ParticleBackground: React.FC = () => {
       canvas.height = window.innerHeight;
     };
 
-    const colors = ['#00f3ff', '#ff003c', '#bc13fe', '#ffffff'];
+    // Changed colors to grayscale (White to Dark Gray)
+    const colors = ['#ffffff', '#cccccc', '#888888', '#444444'];
 
     const createParticle = () => {
       const x = Math.random() * canvas.width;
@@ -41,8 +42,8 @@ const ParticleBackground: React.FC = () => {
     const updateParticles = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Create new particles occasionally
-      if (Math.random() < 0.15) {
+      // Reduced creation probability from 0.15 to 0.05
+      if (Math.random() < 0.05) {
         createParticle();
       }
 

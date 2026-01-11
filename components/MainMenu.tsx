@@ -1,3 +1,4 @@
+
 import React, { useState, useRef } from 'react';
 import { MENU_IMAGES } from '../constants';
 
@@ -14,9 +15,18 @@ interface MenuButtonProps {
   color: string;
   delay: string;
   hoverImages?: string[];
+  heightClass?: string;
 }
 
-const MenuButton: React.FC<MenuButtonProps> = ({ title, subtitle, onClick, color, delay, hoverImages }) => {
+const MenuButton: React.FC<MenuButtonProps> = ({ 
+  title, 
+  subtitle, 
+  onClick, 
+  color, 
+  delay, 
+  hoverImages,
+  heightClass = "h-48 lg:h-[35vh]" // Default height for top row items
+}) => {
   // Initialize with a random index immediately
   const [activeIndex, setActiveIndex] = useState(() => 
     hoverImages && hoverImages.length > 0 
@@ -55,8 +65,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({ title, subtitle, onClick, color
       onClick={onClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      // Kept bg-black/20 for slightly visible container
-      className={`group relative w-full h-48 lg:h-[65vh] border border-gray-800 bg-black/20 overflow-hidden hover:border-${color} transition-colors duration-500 animate-fadeIn`}
+      className={`group relative w-full ${heightClass} border border-gray-800 bg-black/20 overflow-hidden hover:border-${color} transition-colors duration-500 animate-fadeIn`}
       style={{ animationDelay: delay }}
     >
       {hoverImages && hoverImages.length > 0 && (
@@ -116,42 +125,52 @@ const MainMenu: React.FC<MainMenuProps> = ({ onSelect }) => {
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 w-full max-w-[95%] mx-auto px-4 pt-20 pb-10 flex flex-col justify-center h-full">
+      {/* Reduced width from 95% to 7xl to add more breathing room on sides */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 pt-20 pb-10 flex flex-col justify-center h-full">
         <div className="mb-8 lg:mb-12 text-center">
           <h3 className="text-neon-blue font-rajdhani tracking-[0.3em] text-lg mb-2 drop-shadow-md">WELCOME USER_ID: GHOST</h3>
           <h1 className="text-4xl md:text-6xl font-black font-orbitron text-white drop-shadow-lg">SELECT MODULE</h1>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 h-full items-stretch">
-          <MenuButton 
-            title="AFFILIATION" 
-            subtitle="FACTION DATABASE & TERRITORIES" 
-            onClick={() => onSelect('AFFILIATION')}
-            color="neon-blue"
-            delay="0s"
-          />
-          <MenuButton 
-            title="CHARACTER" 
-            subtitle="OPERATIVE ROSTER" 
-            onClick={() => onSelect('CHARACTER')}
-            color="neon-purple"
-            delay="0.1s"
-            hoverImages={MENU_IMAGES}
-          />
-          <MenuButton 
-            title="HISTORY" 
-            subtitle="WORLD ARCHIVE & LORE" 
-            onClick={() => onSelect('HISTORY')}
-            color="neon-gold"
-            delay="0.2s"
-          />
-          <MenuButton 
-            title="WEBTOON" 
-            subtitle="VISUAL RECORDS [OFFLINE]" 
-            onClick={() => onSelect('WEBTOON')}
-            color="neon-red"
-            delay="0.3s"
-          />
+        {/* Layout: Top 3 columns, Bottom 1 column full width */}
+        <div className="flex flex-col gap-6 w-full">
+          {/* Top Row: 3 items */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full">
+            <MenuButton 
+              title="AFFILIATION" 
+              subtitle="FACTION DATABASE & TERRITORIES" 
+              onClick={() => onSelect('AFFILIATION')}
+              color="neon-blue"
+              delay="0s"
+            />
+            <MenuButton 
+              title="CHARACTER" 
+              subtitle="OPERATIVE ROSTER" 
+              onClick={() => onSelect('CHARACTER')}
+              color="neon-purple"
+              delay="0.1s"
+              hoverImages={MENU_IMAGES}
+            />
+            <MenuButton 
+              title="HISTORY" 
+              subtitle="WORLD ARCHIVE & LORE" 
+              onClick={() => onSelect('HISTORY')}
+              color="neon-gold"
+              delay="0.2s"
+            />
+          </div>
+
+          {/* Bottom Row: 1 item full width, reduced height */}
+          <div className="w-full">
+             <MenuButton 
+              title="WEBTOON" 
+              subtitle="VISUAL RECORDS [OFFLINE]" 
+              onClick={() => onSelect('WEBTOON')}
+              color="neon-red"
+              delay="0.3s"
+              heightClass="h-32 lg:h-[18vh]"
+            />
+          </div>
         </div>
 
         <div className="mt-12 text-center text-gray-400 font-rajdhani text-xs drop-shadow-md">

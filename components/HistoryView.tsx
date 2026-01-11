@@ -114,7 +114,7 @@ const HistoryView: React.FC<HistoryViewProps> = ({ onBack }) => {
             <div className="md:hidden absolute top-0 left-8 w-[1px] h-full bg-neon-gold/20 z-0"></div>
 
             {/* Intro Card */}
-            <div className="mb-12 md:mb-0 md:mr-32 relative z-10 w-full md:w-[500px] shrink-0 snap-center px-4 md:px-0">
+            <div className="mb-12 md:mb-0 md:mr-32 relative z-10 w-full md:w-[600px] shrink-0 snap-center px-4 md:px-0">
                 <div className="border border-neon-gold/30 bg-black/80 p-8 md:p-12 backdrop-blur-sm shadow-[0_0_30px_rgba(0,0,0,0.5)]">
                     <h1 className="text-4xl md:text-6xl font-black font-orbitron mb-6 text-neon-gold">
                         HISTORY
@@ -133,7 +133,7 @@ const HistoryView: React.FC<HistoryViewProps> = ({ onBack }) => {
 
             {/* Timeline Items */}
             {HISTORY_LOGS.map((log, index) => (
-                <div key={log.id} className="relative w-full md:w-[500px] shrink-0 mb-24 md:mb-0 md:mr-24 group snap-center pl-16 md:pl-0 pr-4 md:pr-0 min-h-[50vh] md:min-h-0 flex flex-col justify-center">
+                <div key={log.id} className="relative w-full md:w-[800px] shrink-0 mb-24 md:mb-0 md:mr-24 group snap-center pl-16 md:pl-0 pr-4 md:pr-0 min-h-[50vh] md:min-h-0 flex flex-col justify-center">
                     {/* Connection Point on Timeline (Desktop) */}
                     <div className="hidden md:block absolute top-1/2 -left-3 w-6 h-6 rounded-full border-4 border-dark-bg bg-gray-600 group-hover:bg-neon-gold transition-colors z-20 transform -translate-y-1/2 shadow-[0_0_15px_rgba(0,0,0,1)]"></div>
                     
@@ -143,35 +143,35 @@ const HistoryView: React.FC<HistoryViewProps> = ({ onBack }) => {
                     {/* Vertical connector line (Desktop) */}
                     {/* Adjusted to connect from center of box to center line since we are centering everything now */}
                     <div className="hidden md:block absolute left-0 bottom-1/2 w-0.5 h-1/2 bg-transparent z-0"></div> 
-                    {/* We removed the explicit connector line on desktop because if centered, the box sits ON the line. 
-                        Let's add a small connector if needed, but centering implies it's on the axis. 
-                        Actually, let's keep a subtle indicator. */}
                     
                     {/* Horizontal connector line (Mobile) */}
                     <div className="md:hidden absolute left-[-1.5rem] top-1/2 h-0.5 w-8 bg-gray-600 group-hover:bg-neon-gold transition-colors z-0"></div>
 
                     {/* The Content Box */}
-                    {/* Desktop: Removed vertical offset (mb-20, translate-y-8) to center vertically */}
-                    <div className="border-l-4 border-gray-700 bg-panel-bg/90 p-6 md:p-8 hover:border-neon-gold hover:bg-gray-900 transition-all duration-300 shadow-lg relative overflow-hidden flex flex-col justify-center h-full md:h-auto">
+                    {/* Increased width to 800px (parent), padding to p-10/p-14, and added min-h for desktop */}
+                    <div className="border-l-4 border-gray-700 bg-panel-bg/90 p-8 md:p-14 hover:border-neon-gold hover:bg-gray-900 transition-all duration-300 shadow-lg relative overflow-hidden flex flex-col justify-center h-full md:min-h-[450px]">
                         {/* ID BG */}
-                        <div className="absolute -right-4 -top-4 text-6xl font-black font-orbitron text-white/5 select-none pointer-events-none">
+                        <div className="absolute -right-4 -top-4 text-8xl font-black font-orbitron text-white/5 select-none pointer-events-none">
                             {index + 1}
                         </div>
 
-                        <div className="flex justify-between items-center mb-4 border-b border-gray-800 pb-2">
-                             <span className="text-xl text-neon-gold font-rajdhani font-bold tracking-widest">
+                        <div className="flex justify-between items-center mb-6 border-b border-gray-800 pb-4">
+                             {/* Date size increased */}
+                             <span className="text-3xl md:text-4xl text-neon-gold font-rajdhani font-bold tracking-widest">
                                 {log.date}
                              </span>
-                             <span className="text-xs font-mono text-gray-500 border border-gray-700 px-2 py-0.5 rounded">
+                             <span className="text-sm font-mono text-gray-500 border border-gray-700 px-3 py-1 rounded">
                                 {log.securityLevel}
                              </span>
                         </div>
 
-                        <h3 className="text-2xl md:text-3xl font-black font-noto text-white mb-4 group-hover:text-neon-gold transition-colors leading-tight">
+                        {/* Title size increased */}
+                        <h3 className="text-4xl md:text-5xl font-black font-noto text-white mb-6 group-hover:text-neon-gold transition-colors leading-tight">
                             {log.title}
                         </h3>
 
-                        <p className="text-base md:text-lg text-gray-300 font-noto leading-relaxed">
+                        {/* Content size increased */}
+                        <p className="text-lg md:text-xl text-gray-300 font-noto leading-loose whitespace-pre-line">
                             {log.content}
                         </p>
                     </div>

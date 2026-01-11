@@ -1,9 +1,10 @@
 import React from 'react';
-import { CharacterData, Rank, FactionId } from '../types';
+import { CharacterData, Rank } from '../types';
 
 interface CharacterCardProps {
   character: CharacterData;
   factionColor: string;
+  onClick: () => void;
 }
 
 const RankBadge: React.FC<{ rank: Rank }> = ({ rank }) => {
@@ -25,75 +26,49 @@ const RankBadge: React.FC<{ rank: Rank }> = ({ rank }) => {
   }
 
   return (
-    <div className={`absolute top-2 right-2 w-10 h-10 flex items-center justify-center font-orbitron font-bold text-lg border-2 rounded ${colorClass} ${borderClass} shadow-[0_0_10px_rgba(0,0,0,0.5)] backdrop-blur-md`}>
+    <div className={`absolute top-2 right-2 w-8 h-8 flex items-center justify-center font-orbitron font-bold text-base border-2 rounded ${colorClass} ${borderClass} shadow-[0_0_10px_rgba(0,0,0,0.5)] backdrop-blur-md z-20`}>
       {rank}
     </div>
   );
 };
 
-const CharacterCard: React.FC<CharacterCardProps> = ({ character, factionColor }) => {
+const CharacterCard: React.FC<CharacterCardProps> = ({ character, factionColor, onClick }) => {
   return (
-    <div className={`group relative bg-panel-bg border border-gray-800 hover:${factionColor.replace('bg-', 'border-')} transition-all duration-300 overflow-hidden rounded-lg h-[450px] flex flex-col`}>
-      {/* Top Image Placeholder Area */}
-      <div className="h-1/2 w-full bg-gray-900 relative overflow-hidden">
+    <div 
+      onClick={onClick}
+      className={`group relative bg-panel-bg border border-gray-800 hover:${factionColor.replace('bg-', 'border-')} transition-all duration-300 overflow-hidden rounded-lg h-[320px] flex flex-col cursor-pointer shadow-lg hover:shadow-[0_0_20px_rgba(0,0,0,0.5)] transform hover:-translate-y-1`}
+    >
+      {/* Full Height Image Background */}
+      <div className="absolute inset-0 bg-gray-900">
         <img 
-          src={character.imageUrl || `https://picsum.photos/seed/${character.id}/400/300`} 
+          src={character.imageUrl || `https://picsum.photos/seed/${character.id}/400/600`} 
           alt={character.name} 
-          className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 grayscale group-hover:grayscale-0"
+          className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 grayscale group-hover:grayscale-0"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-panel-bg to-transparent"></div>
-        <RankBadge rank={character.rank} />
-        <div className="absolute bottom-2 left-4">
-          <h3 className="text-2xl font-black text-white font-noto tracking-tighter">{character.name}</h3>
-          <p className="text-xs text-gray-400 font-rajdhani uppercase tracking-widest">{character.age} YEARS OLD / {character.gender}</p>
-        </div>
+        {/* Stronger Gradient Overlay for Text Readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
       </div>
 
-      {/* Stats and Info Area */}
-      <div className="p-4 flex flex-col flex-grow relative z-10">
-        
-        {/* Ability Section */}
-        <div className="mb-4">
-          <div className="text-[10px] text-gray-500 uppercase font-rajdhani tracking-widest mb-1">Ability</div>
-          <div className="font-bold text-white text-sm mb-1">{character.abilityName}</div>
-          <div className="text-xs text-gray-400 leading-snug line-clamp-2 group-hover:line-clamp-none transition-all">
-            {character.abilityDesc}
-          </div>
-        </div>
+      <RankBadge rank={character.rank} />
 
-        {/* Personality Tags */}
-        <div className="mb-4">
-           <div className="text-[10px] text-gray-500 uppercase font-rajdhani tracking-widest mb-2">Personality</div>
-           <div className="flex flex-wrap gap-1">
-             {character.personality.map((p, i) => (
-               <span key={i} className="px-2 py-0.5 bg-gray-800 text-gray-300 text-[10px] rounded border border-gray-700">
-                 {p}
+      {/* Minimal Info: Name, Age, Gender */}
+      <div className="absolute bottom-0 left-0 w-full p-4 z-10 flex flex-col justify-end h-full pointer-events-none">
+         <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+            <h3 className="text-2xl font-black text-white font-noto tracking-tighter mb-1 drop-shadow-md">{character.name}</h3>
+            
+            <div className="flex items-center gap-2 text-gray-300 font-rajdhani uppercase tracking-widest text-xs mb-2">
+               <span>{character.age} YEARS</span>
+               <span className="w-1 h-1 bg-gray-500 rounded-full"></span>
+               <span>{character.gender}</span>
+            </div>
+            
+            {/* Click CTA */}
+            <div className="h-0 opacity-0 group-hover:opacity-100 group-hover:h-auto overflow-hidden transition-all duration-300">
+               <span className={`text-xs ${factionColor.replace('border-', 'text-')} font-orbitron tracking-wider flex items-center`}>
+                 ACCESS DATA <span className="ml-2">►</span>
                </span>
-             ))}
-           </div>
-        </div>
-
-        {/* Decorative Tech Lines */}
-        <div className="mt-auto pt-4 border-t border-gray-800 flex justify-between items-end opacity-50 group-hover:opacity-100 transition-opacity">
-           <div className="flex flex-col gap-1 w-full">
-              <div className="text-[10px] text-gray-500 uppercase font-rajdhani tracking-widest">Notable Features</div>
-              <ul className="text-xs text-gray-400 list-disc list-inside">
-                {character.features.slice(0,2).map((f,i) => <li key={i} className="truncate">{f}</li>)}
-              </ul>
-           </div>
-        </div>
-        
-        {/* Hover overlay for full features */}
-        <div className="absolute inset-0 bg-black/90 p-6 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto">
-             <h4 className="text-neon-blue font-orbitron mb-4">DATA_LOG</h4>
-             <ul className="space-y-2 text-sm text-gray-300 font-noto">
-                {character.features.map((f, i) => (
-                  <li key={i} className="flex items-start">
-                    <span className="text-neon-red mr-2">►</span> {f}
-                  </li>
-                ))}
-             </ul>
-        </div>
+            </div>
+         </div>
       </div>
     </div>
   );

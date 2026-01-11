@@ -19,7 +19,7 @@ export const HISTORY_LOGS = [
   {
     id: "LOG_2150_04",
     date: "2150.04.12",
-    title: "THE GREAT COLLAPSE",
+    title: "대붕괴 (The Great Collapse)",
     category: "EVENT",
     securityLevel: "Lv.1",
     content: "진도 16.0의 대지진 발생. 전 세계 핵발전소 74% 동시 멜트다운. 대기 중 방사능 농도가 치사량의 500배까지 상승하며 인류 문명 붕괴."
@@ -27,7 +27,7 @@ export const HISTORY_LOGS = [
   {
     id: "LOG_2155_09",
     date: "2155.09.01",
-    title: "PROJECT: NOAH FAILED",
+    title: "노아 프로젝트 실패",
     category: "MILITARY",
     securityLevel: "Lv.3",
     content: "지하 벙커로 대피했던 구인류 지도층, 내부 자원 고갈 및 오염된 환기 시스템으로 인해 전멸 확인. 인류 지휘 체계 완전 소실."
@@ -35,7 +35,7 @@ export const HISTORY_LOGS = [
   {
     id: "LOG_2199_11",
     date: "2199.11.05",
-    title: "FIRST AWAKENING",
+    title: "최초의 각성",
     category: "BIOLOGY",
     securityLevel: "Lv.5",
     content: "최초의 이능력자(Gifted) '아담' 탄생. 방사능을 에너지원으로 변환하는 신체 구조 발견. 구인류와 신인류 간의 갈등 시발점."
@@ -45,7 +45,7 @@ export const HISTORY_LOGS = [
   {
     id: "LOG_2250_01",
     date: "2250.01.01",
-    title: "OP. CLEAN SLATE",
+    title: "클린 슬레이트 작전",
     category: "MILITARY",
     securityLevel: "Lv.4",
     content: "구인류 잔존 세력의 마지막 발악. 변이체들을 몰살하기 위한 대규모 소이탄 폭격 작전 실패. 오히려 변이체들의 급격한 진화를 촉발함."
@@ -53,7 +53,7 @@ export const HISTORY_LOGS = [
   {
     id: "LOG_2300_08",
     date: "2300.08.15",
-    title: "AXION DISCOVERY",
+    title: "액시온(Axion) 발견",
     category: "TECHNOLOGY",
     securityLevel: "Lv.2",
     content: "오염된 대기에서 결정화된 고효율 에너지원 '액시온' 정제 기술 개발. 이를 바탕으로 ZERO HOUR의 전신인 '테크노 코어' 설립."
@@ -61,7 +61,7 @@ export const HISTORY_LOGS = [
   {
     id: "LOG_2342_03",
     date: "2342.03.10",
-    title: "THE LONG WINTER",
+    title: "긴 겨울의 시작",
     category: "ENVIRONMENT",
     securityLevel: "Lv.2",
     content: "핵겨울로 인한 50년 간의 빙하기 도래. 식량 생산 불가능. 인구의 40%가 기아로 사망하거나 동족 포식 발생."
@@ -69,7 +69,7 @@ export const HISTORY_LOGS = [
   {
     id: "LOG_2410_12",
     date: "2410.12.24",
-    title: "MUTATION: TYPE-Z",
+    title: "변이체: Type-Z 출현",
     category: "BIOLOGY",
     securityLevel: "Lv.4",
     content: "지능을 가진 변이체(Type-Z) 최초 보고. 인간의 언어를 흉내내어 생존자를 유인하는 사냥 방식 확인."
@@ -79,7 +79,7 @@ export const HISTORY_LOGS = [
   {
     id: "LOG_2500_03",
     date: "2500.03.20",
-    title: "AEGIS PROTOCOL",
+    title: "이지스 프로토콜 발효",
     category: "POLITICS",
     securityLevel: "Lv.3",
     content: "무질서한 능력자 범죄를 막기 위해 자경단 연합 'AEGIS' 공식 출범. '힘은 질서를 위해서만 존재한다'는 강령 채택."
@@ -87,7 +87,7 @@ export const HISTORY_LOGS = [
   {
     id: "LOG_2650_12",
     date: "2650.12.25",
-    title: "THE RED RAIN",
+    title: "붉은 비의 재앙",
     category: "ENVIRONMENT",
     securityLevel: "Lv.3",
     content: "3일 밤낮으로 붉은 비가 내린 기상이변. 이 비를 맞은 생물 중 30%가 즉사하고, 살아남은 생물은 광폭화됨. BLACK SWAN 세력 확장 계기."
@@ -95,7 +95,7 @@ export const HISTORY_LOGS = [
   {
     id: "LOG_2777_07",
     date: "2777.07.07",
-    title: "THE GREAT WALL",
+    title: "거대 장벽 완공",
     category: "CONSTRUCTION",
     securityLevel: "Lv.2",
     content: "ZERO HOUR, 경기도 접경 지역에 높이 50m의 방벽 건설 완공. 미개발 구역으로부터의 변이체 유입 완전 차단."
@@ -103,7 +103,7 @@ export const HISTORY_LOGS = [
   {
     id: "LOG_2850_03",
     date: "2850.03.15",
-    title: "THE GHOST FLEET",
+    title: "유령 선단 출몰",
     category: "SOCIETY",
     securityLevel: "Lv.3",
     content: "오염된 바다를 건너오는 정체불명의 선박들 급증. 타 대륙의 생존자들이 목숨을 걸고 밀항을 시도. 정부는 이들을 전원 체포하여 '제 7 격리구역'에 수감."
@@ -111,7 +111,7 @@ export const HISTORY_LOGS = [
   {
     id: "LOG_2890_06",
     date: "2890.06.06",
-    title: "BLACK SWAN RISING",
+    title: "블랙 스완의 부상",
     category: "WAR",
     securityLevel: "Lv.4",
     content: "밀항자 수용소에서 발생한 계획적인 무력 점거. 리더 '레이븐'은 '이 땅의 주인은 가장 강한 자'라고 선언하며, 외부 세력을 규합해 한반도 정복을 위한 교두보를 마련함."
@@ -119,7 +119,7 @@ export const HISTORY_LOGS = [
   {
     id: "LOG_2950_11",
     date: "2950.11.11",
-    title: "BATTLE OF DAEJEON",
+    title: "대전(大田) 전투",
     category: "WAR",
     securityLevel: "Lv.3",
     content: "3대 세력이 대전 폐허에서 액시온 광맥을 두고 충돌. 3일간의 전투 끝에 무승부로 종결. 사상자 5,000명 발생."
@@ -127,7 +127,7 @@ export const HISTORY_LOGS = [
   {
     id: "LOG_3000_01",
     date: "3000.01.01",
-    title: "THE TRUCE",
+    title: "불가침 조약 (The Truce)",
     category: "DIPLOMACY",
     securityLevel: "Lv.5",
     content: "3대 세력(ZERO HOUR, AEGIS, BLACK SWAN) 간의 불가침 조약 체결. 각자의 영토를 인정하고 미개발 구역을 완충지대로 설정."
@@ -137,15 +137,23 @@ export const HISTORY_LOGS = [
   {
     id: "LOG_3050_05",
     date: "3050.05.05",
-    title: "ZERO HOUR AI",
+    title: "제로 아워 AI 'VALK'",
     category: "TECHNOLOGY",
     securityLevel: "Lv.4",
     content: "ZERO HOUR, 자율형 전투 AI 'VALK' 가동 시작. 인간의 개입 없이 도시 치안 유지 가능 확인."
   },
   {
+    id: "LOG_3055_08",
+    date: "3055.08.09",
+    title: "발크(VALK) 오작동 참사",
+    category: "INCIDENT",
+    securityLevel: "Lv.Top",
+    content: "자율형 전투 AI 'VALK'가 통제 불능 상태에 빠져 ZERO HOUR 할당 구역 내 민간인을 적으로 인식하고 공격. 12,000명 이상의 사상자가 발생했으며, 해당 구역은 현재 폐쇄됨."
+  },
+  {
     id: "LOG_3070_02",
     date: "3070.02.14",
-    title: "DISEASE: AXION BURN",
+    title: "질병: 액시온 번",
     category: "MEDICAL",
     securityLevel: "Lv.2",
     content: "이능력 과다 사용 시 발생하는 신체 붕괴 현상. 혈관이 푸르게 빛나며 타들어가다가 결국 결정화되어 사망함. 현재 치료법 없음."
@@ -153,7 +161,7 @@ export const HISTORY_LOGS = [
   {
     id: "LOG_3072_09",
     date: "3072.09.21",
-    title: "GHOST SIGNAL",
+    title: "미지의 유령 신호",
     category: "MYSTERY",
     securityLevel: "Lv.Top",
     content: "미개발 구역 깊은 곳에서 정체불명의 라디오 신호 포착. '구원자가 온다'는 메시지가 48시간 간격으로 반복 송출 중."
@@ -163,7 +171,7 @@ export const HISTORY_LOGS = [
   {
     id: "LOG_TECH_01",
     date: "UNKNOWN",
-    title: "TECH: NEURAL LINK",
+    title: "기술: 뉴럴 링크",
     category: "TECHNOLOGY",
     securityLevel: "Lv.3",
     content: "뇌파를 기계에 직접 연결하는 기술. 유나(AEGIS)와 같은 데이터 링크 능력자가 아니더라도 제한적으로 드론 조작 가능."
@@ -171,7 +179,7 @@ export const HISTORY_LOGS = [
   {
     id: "LOG_BIO_04",
     date: "UNKNOWN",
-    title: "BIO: HIVE MIND",
+    title: "생태: 하이브 마인드",
     category: "BIOLOGY",
     securityLevel: "Lv.4",
     content: "최근 미개발 구역에서 발견되는 변이체들의 특징. 개체가 아닌 집단 지성을 공유하며, 여왕 개체의 명령에 절대복종하는 패턴을 보임."
@@ -179,7 +187,7 @@ export const HISTORY_LOGS = [
   {
     id: "LOG_ZONE_09",
     date: "UNKNOWN",
-    title: "ZONE: SECTOR 9",
+    title: "지역: 9구역 (Sector 9)",
     category: "LOCATION",
     securityLevel: "Lv.5",
     content: "과거 서울의 중심부였던 곳. 현재는 가장 높은 방사능 수치를 기록하는 거대 싱크홀. 그 바닥에 무엇이 있는지는 아무도 모름."
@@ -187,7 +195,7 @@ export const HISTORY_LOGS = [
   {
     id: "LOG_ITEM_77",
     date: "UNKNOWN",
-    title: "ARTIFACT: MONOLITH",
+    title: "아티팩트: 모노리스",
     category: "ARTIFACT",
     securityLevel: "Lv.Top",
     content: "전라남도 깊은 곳에서 목격담이 들려오는 검은 비석. 접근하는 모든 기계장치를 무력화시키며, 주변의 시간을 왜곡시킨다는 소문."
@@ -195,7 +203,7 @@ export const HISTORY_LOGS = [
   {
     id: "LOG_SOC_01",
     date: "CURRENT",
-    title: "CURRENCY: CREDITS",
+    title: "화폐: 크레딧",
     category: "SOCIETY",
     securityLevel: "Lv.1",
     content: "기존 화폐는 휴지조각이 됨. 현재는 액시온 배터리 그 자체 혹은 디지털 크레딧이 통용됨. BLACK SWAN 구역에서는 물물교환이나 노동력이 화폐를 대신함."
@@ -203,39 +211,23 @@ export const HISTORY_LOGS = [
   {
     id: "LOG_RUMOR_05",
     date: "CURRENT",
-    title: "THE WANDERER",
+    title: "소문: 방랑자",
     category: "RUMOR",
     securityLevel: "Lv.1",
     content: "세력에 속하지 않은 S급 능력자가 황무지를 떠돌며 병자들을 고친다는 소문. 각 세력의 스카우터들이 혈안이 되어 찾고 있음."
   },
   {
-    id: "LOG_WEAPON_99",
-    date: "UNKNOWN",
-    title: "LEGENDARY: SOUL EATER",
-    category: "WEAPON",
-    securityLevel: "Lv.4",
-    content: "BLACK SWAN의 창고 어딘가에 보관되어 있다는 저주받은 검. 사용자의 생명력을 갉아먹는 대신 무엇이든 벨 수 있다고 함."
-  },
-  {
     id: "LOG_FOOD_02",
     date: "CURRENT",
-    title: "SYNTH-MEAT",
+    title: "문화: 합성육",
     category: "CULTURE",
     securityLevel: "Lv.1",
     content: "오염되지 않은 고기는 사치품. 일반 시민들은 변이 식물 단백질로 만든 합성육이나 곤충 젤리를 주식으로 섭취함."
   },
   {
-    id: "LOG_ORG_00",
-    date: "UNKNOWN",
-    title: "THE ARCHITECTS",
-    category: "CONSPIRACY",
-    securityLevel: "Lv.Top",
-    content: "3대 세력의 배후에서 전쟁을 조장하고 무기를 파는 비밀 결사체. 그들의 정체나 목적은 철저히 베일에 싸여 있음."
-  },
-  {
     id: "LOG_ENV_03",
     date: "CURRENT",
-    title: "ACID FOG",
+    title: "환경: 산성 안개",
     category: "ENVIRONMENT",
     securityLevel: "Lv.2",
     content: "새벽녘에 자주 발생하는 산성 안개. 피부에 닿으면 화상을 입히며, 방독면 없이는 5분 내에 폐가 녹아내릴 수 있음."
@@ -243,7 +235,7 @@ export const HISTORY_LOGS = [
   {
     id: "LOG_MUT_11",
     date: "UNKNOWN",
-    title: "CREATURE: STALKER",
+    title: "생물: 스토커",
     category: "BESTIARY",
     securityLevel: "Lv.3",
     content: "투명화 능력을 가진 변이 맹수. 발소리를 내지 않으며, 열 감지 시야로도 포착하기 어려움. 주로 밤에 활동."

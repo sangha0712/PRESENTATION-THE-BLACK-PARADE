@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { FactionId } from '../types';
+import { FactionId, CharacterData } from '../types';
 import { FACTIONS, CHARACTERS } from '../constants';
 import FactionSection from './FactionSection';
+import CharacterDetailModal from './CharacterDetailModal';
 
 interface AffiliationViewProps {
   onBack: () => void;
@@ -9,6 +10,7 @@ interface AffiliationViewProps {
 
 const AffiliationView: React.FC<AffiliationViewProps> = ({ onBack }) => {
   const [activeFaction, setActiveFaction] = useState<FactionId>(FactionId.ZERO_HOUR);
+  const [selectedCharacter, setSelectedCharacter] = useState<CharacterData | null>(null);
 
   return (
     <div className="animate-fadeIn min-h-screen bg-transparent">
@@ -60,9 +62,18 @@ const AffiliationView: React.FC<AffiliationViewProps> = ({ onBack }) => {
               faction={faction}
               characters={CHARACTERS.filter(c => c.factionId === faction.id)}
               isActive={activeFaction === faction.id}
+              onCharacterSelect={setSelectedCharacter}
             />
           ))}
       </div>
+
+      {/* Modal */}
+      {selectedCharacter && (
+        <CharacterDetailModal 
+          character={selectedCharacter} 
+          onClose={() => setSelectedCharacter(null)} 
+        />
+      )}
     </div>
   );
 };

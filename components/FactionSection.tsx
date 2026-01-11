@@ -6,9 +6,10 @@ interface FactionSectionProps {
   faction: FactionData;
   characters: CharacterData[];
   isActive: boolean;
+  onCharacterSelect: (char: CharacterData) => void;
 }
 
-const FactionSection: React.FC<FactionSectionProps> = ({ faction, characters, isActive }) => {
+const FactionSection: React.FC<FactionSectionProps> = ({ faction, characters, isActive, onCharacterSelect }) => {
   if (!isActive) return null;
 
   return (
@@ -44,12 +45,13 @@ const FactionSection: React.FC<FactionSectionProps> = ({ faction, characters, is
           </h3>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {characters.map((char) => (
             <CharacterCard 
               key={char.id} 
               character={char} 
               factionColor={faction.colors.secondary}
+              onClick={() => onCharacterSelect(char)}
             />
           ))}
         </div>

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CHARACTERS, FACTIONS } from '../constants';
-import { Rank } from '../types';
+import { Rank, CharacterData } from '../types';
 import CharacterCard from './CharacterCard';
+import CharacterDetailModal from './CharacterDetailModal';
 
 interface CharacterRosterProps {
   onBack: () => void;
@@ -19,6 +20,8 @@ const rankOrder = {
 };
 
 const CharacterRoster: React.FC<CharacterRosterProps> = ({ onBack }) => {
+  const [selectedCharacter, setSelectedCharacter] = useState<CharacterData | null>(null);
+
   // Sort characters by Rank
   const sortedCharacters = [...CHARACTERS].sort((a, b) => {
     return rankOrder[a.rank] - rankOrder[b.rank];
@@ -44,7 +47,7 @@ const CharacterRoster: React.FC<CharacterRosterProps> = ({ onBack }) => {
             <p className="text-gray-500 font-rajdhani">SORTED BY RANK: S -> C</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
           {sortedCharacters.map((char) => {
              // Look up faction for color styling
              const faction = Object.values(FACTIONS).find(f => f.id === char.factionId);
@@ -55,11 +58,20 @@ const CharacterRoster: React.FC<CharacterRosterProps> = ({ onBack }) => {
                  key={char.id}
                  character={char}
                  factionColor={color}
+                 onClick={() => setSelectedCharacter(char)}
                />
              );
           })}
         </div>
       </div>
+
+      {/* Modal */}
+      {selectedCharacter && (
+        <CharacterDetailModal 
+          character={selectedCharacter} 
+          onClose={() => setSelectedCharacter(null)} 
+        />
+      )}
     </div>
   );
 };

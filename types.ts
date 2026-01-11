@@ -35,6 +35,7 @@ export interface CharacterData {
   name: string;
   gender: '남' | '여' | '불명';
   factionId: FactionId;
+  imageUrl?: string;
   appearance: string;
   age: string;
   abilityName: string;

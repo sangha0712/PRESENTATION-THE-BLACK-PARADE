@@ -37,7 +37,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character, factionColor }
       {/* Top Image Placeholder Area */}
       <div className="h-1/2 w-full bg-gray-900 relative overflow-hidden">
         <img 
-          src={`https://picsum.photos/seed/${character.id}/400/300`} 
+          src={character.imageUrl || `https://picsum.photos/seed/${character.id}/400/300`} 
           alt={character.name} 
           className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 grayscale group-hover:grayscale-0"
         />

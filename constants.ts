@@ -151,6 +151,14 @@ export const HISTORY_LOGS = [
     content: "자율형 전투 AI 'VALK'가 통제 불능 상태에 빠져 ZERO HOUR 할당 구역 내 민간인을 적으로 인식하고 공격. 12,000명 이상의 사상자가 발생했으며, 해당 구역은 현재 폐쇄됨."
   },
   {
+    id: "LOG_3056_01",
+    date: "3056.01.15",
+    title: "제로 아워: 조직 붕괴",
+    category: "TRAGEDY",
+    securityLevel: "Lv.Top",
+    content: "폭주하는 VALK를 저지하기 위해 투입된 제로 아워의 정예 병력이 사실상 전멸함. 이 참사로 인해 1,000명에 달하던 조직원이 100명 미만으로 급감하였으며, 조직의 존립 자체가 위태로워짐."
+  },
+  {
     id: "LOG_3070_02",
     date: "3070.02.14",
     title: "질병: 액시온 번",
@@ -246,7 +254,7 @@ export const FACTIONS: Record<FactionId, FactionData> = {
   [FactionId.ZERO_HOUR]: {
     id: FactionId.ZERO_HOUR,
     name: "ZERO HOUR",
-    description: "첨단 기술과 이능력의 조화를 추구하는 미래 지향적 세력.",
+    description: "2300년 설립된 '테크노 코어'를 전신으로 하는 기술 중심 세력. 액시온 에너지 정제 기술을 독점하고 50m 높이의 거대 장벽을 건설하여 변이체로부터 안전한 유토피아를 구축했다. 자율형 AI 'VALK' 사태의 상처에도 불구하고, 여전히 기술만이 인류를 구원할 유일한 수단이라 믿는다.",
     territory: "경기도, 충청남도",
     colors: {
       primary: "bg-cyan-900",
@@ -259,7 +267,7 @@ export const FACTIONS: Record<FactionId, FactionData> = {
   [FactionId.AEGIS]: {
     id: FactionId.AEGIS,
     name: "AEGIS",
-    description: "질서와 규율을 중시하며 인류의 수호자를 자처하는 방패.",
+    description: "2500년 '이지스 프로토콜'과 함께 출범한 절대 질서의 수호자들. '힘은 질서를 위해서만 존재한다'는 강령 아래, 무분별한 이능력 사용을 엄격히 통제한다. 철저한 계급 체계와 군사력을 바탕으로 혼돈의 시대에 인류 최후의 방벽이자 법의 집행자를 자처한다.",
     territory: "전라북도, 경상북도",
     colors: {
       primary: "bg-blue-900",
@@ -272,7 +280,7 @@ export const FACTIONS: Record<FactionId, FactionData> = {
   [FactionId.BLACK_SWAN]: {
     id: FactionId.BLACK_SWAN,
     name: "BLACK SWAN",
-    description: "바다를 건너온 이방인들의 연합. 한반도 정복을 노리는 혁명군.",
+    description: "죽음의 바다를 건너온 '유령 선단'과 수용소 반란군이 규합하여 탄생한 혁명 세력. 리더 레이븐의 '강한 자만이 살아남는다'는 적자생존의 철학을 따른다. 기존의 기득권 세력을 파괴하고, 힘에 의한 새로운 질서를 세우기 위해 붉은 비의 재앙마저 기회로 삼는 야심가들이다.",
     territory: "충청북도, 강원도",
     colors: {
       primary: "bg-purple-900",

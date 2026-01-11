@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { CHARACTERS, FACTIONS } from '../constants';
 import { Rank, CharacterData } from '../types';
@@ -44,7 +45,7 @@ const CharacterRoster: React.FC<CharacterRosterProps> = ({ onBack }) => {
       <div className="pt-24 pb-12 max-w-7xl mx-auto px-4">
         <div className="mb-8 text-center">
             <h2 className="text-3xl font-orbitron text-white mb-2">OPERATIVE DATABASE</h2>
-            <p className="text-gray-500 font-rajdhani">SORTED BY RANK: S -> C</p>
+            <p className="text-gray-500 font-rajdhani">SORTED BY RANK: S &rarr; C</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">

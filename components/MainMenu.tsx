@@ -65,7 +65,7 @@ const MenuButton: React.FC<MenuButtonProps> = ({
       onClick={onClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`group relative w-full ${heightClass} border border-gray-800 bg-black/20 overflow-hidden hover:border-${color} transition-colors duration-500 animate-fadeIn`}
+      className={`group relative w-full ${heightClass} border border-gray-800 bg-black/60 overflow-hidden hover:border-${color} transition-colors duration-500 animate-fadeIn`}
       style={{ animationDelay: delay }}
     >
       {hoverImages && hoverImages.length > 0 && (

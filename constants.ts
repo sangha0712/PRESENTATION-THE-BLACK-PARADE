@@ -1,4 +1,5 @@
 
+
 import { CharacterData, FactionData, FactionId, Rank } from './types';
 
 export const WORLD_LORE = {
@@ -173,6 +174,14 @@ export const HISTORY_LOGS = [
     category: "MYSTERY",
     securityLevel: "Lv.Top",
     content: "사람의 발길이 닿지 않는 미개발 구역 깊은 곳에서 정체불명의 라디오 신호가 포착되었다. 48시간 간격으로 송출되는 이 신호는 낡은 목소리로 '구원자가 온다', '방주는 준비되었다'는 알 수 없는 메시지를 반복하고 있다. 발신지를 추적하려던 정찰대들은 모두 실종되었으며, 이 신호가 과거의 유물인지 새로운 위협의 전조인지는 아직 밝혀지지 않았다."
+  },
+  {
+    id: "LOG_3073_01",
+    date: "3073.01.17",
+    title: "제로 아워: 지휘권 이양",
+    category: "MILITARY",
+    securityLevel: "Lv.Top",
+    content: "ZERO HOUR의 지휘권이 '비네트'에게 공식적으로 이양되었다. 발크 사태 이후 조직 재건이 불가능하다고 판단한 수뇌부는 남은 자원을 최후의 4인(상중하, 챠린, 비네트, 미야)에게 일임하고 해산했다. 이제 제로 아워는 거대 군사 조직이 아닌, 비네트를 중심으로 한 초정예 소대 규모로 축소 운영된다. 비록 인원은 4명뿐이지만, 이들의 개별 전투력은 여전히 국가급 전력으로 평가받는다."
   },
   
   // MISC LORE & RUMORS

@@ -1,3 +1,4 @@
+
 export class AudioEngine {
   private ctx: AudioContext | null = null;
   private isPlaying: boolean = false;
@@ -187,6 +188,64 @@ export class AudioEngine {
 
     osc.start(time);
     osc.stop(time + 3.5);
+  }
+
+  // --- Sound Effect: Emergency Alert (EAS) ---
+  public playEmergencyAlert() {
+    this.initContext();
+    if (this.ctx && this.ctx.state === 'suspended') {
+      this.ctx.resume().catch(e => console.error("Audio resume blocked", e));
+    }
+    if (!this.ctx) return;
+
+    const t = this.ctx.currentTime;
+    // Total duration: 17 seconds as requested
+    const totalDuration = 17.0; 
+    // Volume: 0.1
+    const volume = 0.1; 
+
+    const osc1 = this.ctx.createOscillator();
+    const osc2 = this.ctx.createOscillator();
+    const gain = this.ctx.createGain();
+
+    osc1.type = 'sawtooth';
+    osc2.type = 'square';
+    // Standard EAS dual-tone dissonance
+    osc1.frequency.value = 960;
+    osc2.frequency.value = 853;
+    
+    // Initialize silence
+    gain.gain.setValueAtTime(0, t);
+
+    // --- Rhythm Logic ---
+    // Pattern: 1.5s Sound, 1.5s Silence
+    // Use setValueAtTime for sharp cuts (no fading)
+    const soundDuration = 1.5;
+    const silenceDuration = 1.5;
+    let cycleStart = t;
+
+    while (cycleStart < t + totalDuration) {
+      // 1. SNAP ON
+      gain.gain.setValueAtTime(volume, cycleStart);
+      
+      const soundEnd = Math.min(cycleStart + soundDuration, t + totalDuration);
+
+      // 2. SNAP OFF
+      gain.gain.setValueAtTime(volume, soundEnd);
+      gain.gain.setValueAtTime(0, soundEnd);
+
+      cycleStart += (soundDuration + silenceDuration);
+    }
+
+    // Connect and Play
+    osc1.connect(gain);
+    osc2.connect(gain);
+    gain.connect(this.ctx.destination); 
+
+    osc1.start(t);
+    osc2.start(t);
+    osc1.stop(t + totalDuration + 0.5); 
+    osc2.stop(t + totalDuration + 0.5);
   }
 
   // --- Sequencer ---

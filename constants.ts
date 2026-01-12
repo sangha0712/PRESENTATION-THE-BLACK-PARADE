@@ -433,7 +433,7 @@ export const CHARACTERS: CharacterData[] = [
   {
     id: 'raven',
     name: '레이븐',
-    gender: '남',
+    gender: '여',
     factionId: FactionId.BLACK_SWAN,
     imageUrl: 'https://igx.kr/r/2C/8/0',
     appearance: '적발(올백), 적안, 창백함',
@@ -441,7 +441,7 @@ export const CHARACTERS: CharacterData[] = [
     abilityName: '헤마토맨시',
     abilityDesc: '자신의 혈액 무기화, 타인 출혈량 조작',
     rank: Rank.S,
-    personality: ['오만', '신사적', '잔혹', '사이코패스'],
+    personality: ['오만', '우아함', '잔혹', '사이코패스'],
     features: ['지팡이 검', '피를 소모시 강화', '비네트와 악연']
   },
   {
